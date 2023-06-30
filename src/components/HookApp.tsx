@@ -1,10 +1,10 @@
 import React from 'react'
 import { CounterApp } from './useState/CounterApp.tsx';
 import '../index.css';
-import { counterCustomHook } from '../hooks/counterCustomHook.tsx';
+import { CounterCustomHook } from './useState/counterCustomHook.tsx';
 
 const HookApp = () => {
-  const counter = counterCustomHook();
+  const counter = CounterCustomHook();
 
   return (
     <div>
