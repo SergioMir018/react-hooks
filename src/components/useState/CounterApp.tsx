@@ -10,7 +10,7 @@ export const CounterApp  = () => {
         Counter: <span className='ml-1'> { counter } </span>
       </div>
       <button onClick={ () => setCounter( counter + 1 ) }
-      className=' bg-slate-600 border-4 p-3 rounded-md hover:bg-slate-200 hover:text-black hover:rounded-2xl hover:transition-all duration-500 ease-in-out font-semibold text-lg'
+      className=' bg-slate-600 border-4 p-3 rounded-md hover:bg-slate-200 hover:text-black hover:rounded-3xl hover:transition-all duration-500 ease-in-out font-semibold text-lg active:bg-slate-400'
       >
         + 1
       </button>
