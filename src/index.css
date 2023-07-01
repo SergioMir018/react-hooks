@@ -10,4 +10,8 @@
   input {
     @apply border-slate-400 rounded-md bg-slate-100  p-1 text-slate-700 text-lg font-semibold border-4 outline-none focus:border-purple-600 focus:bg-white focus:shadow-neon transition-all duration-150
   }
+
+  .button {
+    --translate-x-random: ${Math.floor(Math.random() * (38 - 28 + 1) + 28)}px;
+  }
 }
