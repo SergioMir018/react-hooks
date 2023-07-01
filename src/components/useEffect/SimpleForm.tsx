@@ -52,6 +52,16 @@ const handleInputChange = ( e:React.ChangeEvent<HTMLInputElement> ) => {
         placeholder='email@gmail.com' />
       </div>
       { ( name === '123' ) && <Message /> }
+      <div className='w-1/4 flex justify-center'>
+        <button 
+          className={`font-semibold bg-slate-100 mt-4 px-3 py-1 border-4 rounded-md 
+          ${name === '' ? 'hover:translate-x-28 transition duration-200' : email === '' ? 'hover:-translate-x-28 transition duration-200' : 'hover:bg-purple-500 hover:rounded-xl hover:text-white hover:shadow-neon active:bg-purple-300 active:border-purple-600 active:text-slate-400 active:shadow-none transition-all duration-200'}`}
+          disabled={name === '' || email === ''}
+        >
+          submit
+        </button>
+      </div>
+      
     </div>
   )
 }
