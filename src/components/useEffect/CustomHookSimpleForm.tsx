@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import Message from './Message';
+import React, { useState } from 'react'
 
-export const SimpleForm = () => {
+export const CustomHookSimpleForm = () => {
 
   interface FormState {
   name: string;
@@ -14,14 +13,6 @@ export const SimpleForm = () => {
   });
 
   const { name, email } = formState;
-  
-  useEffect(() => {
-    console.log('the name changed');
-  },[ name ] );
-
-  useEffect(() => {
-    console.log('the email changed');
-  },[ email ] );
 
 const handleInputChange = ( e:React.ChangeEvent<HTMLInputElement> ) => { 
     setFormState({
@@ -51,7 +42,6 @@ const handleInputChange = ( e:React.ChangeEvent<HTMLInputElement> ) => {
         onChange={ handleInputChange } 
         placeholder='email@gmail.com' />
       </div>
-      { ( name === '123' ) && <Message /> }
       <div className='w-1/4 flex justify-center'>
         <button 
           className={`font-semibold bg-slate-100 mt-4 px-3 py-1 border-4 rounded-md 
