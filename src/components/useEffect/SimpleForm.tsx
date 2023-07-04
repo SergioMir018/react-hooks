@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Message from './Message';
+import { FormState } from '../../types';
 
 export const SimpleForm = () => {
-
-  interface FormState {
-  name: string;
-  email: string;
-}
 
   const [formState, setFormState] = useState<FormState>({
     name: '',
