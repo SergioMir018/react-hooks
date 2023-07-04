@@ -1,9 +1,9 @@
-export interface FormState {
+export type FormState = {
   name: string
   email: string
 }
 
-export interface FormStateHook {
+export type FormStateHook = {
   name: string
   email: string
   password: string

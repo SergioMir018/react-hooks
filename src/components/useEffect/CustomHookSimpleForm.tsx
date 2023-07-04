@@ -1,22 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FormStateHook } from '../../types';
+import { useForm } from '../../hooks/useForm';
 
 export const CustomHookSimpleForm = () => {
 
-  const [formState, setFormState] = useState<FormStateHook>({
+  const {values, handleInputChange} = useForm({
     name: '',
     email: '',
     password: ''
   });
 
-  const { name, email, password } = formState;
-
-const handleInputChange = ( e:React.ChangeEvent<HTMLInputElement> ) => { 
-    setFormState({
-      ...formState,
-      [e.target.name]: e.target.value
-    });
-  };
+  const { name, email, password } = values as FormStateHook;
 
   return (
     <div className='flex flex-col items-center mt-3'>
