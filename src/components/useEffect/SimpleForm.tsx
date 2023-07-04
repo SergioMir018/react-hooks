@@ -12,8 +12,13 @@ export const SimpleForm = () => {
 
   const { name, email } = values as FormState;
 
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = ( event ) => {
+    event.preventDefault();
+    console.log( values );
+  };
+
   return (
-    <div className='flex flex-col items-center mt-3'>
+    <form onSubmit={ handleSubmit } className='flex flex-col items-center mt-3'>
       <h1
       className='text-7xl text-white'
       > useEffect exercise </h1>
@@ -39,11 +44,11 @@ export const SimpleForm = () => {
           className={`font-semibold bg-slate-100 mt-4 px-3 py-1 border-4 rounded-md 
           ${name === '' ? 'hover:translate-x-28 transition duration-200': email === '' ? 'hover:-translate-x-28 transition duration-200' : 'hover:bg-purple-500 hover:rounded-xl hover:text-white hover:shadow-neon active:bg-purple-300 active:border-purple-600 active:text-slate-400 active:shadow-none transition-all duration-200'}`}
           disabled={name === '' || email === ''}
+          type='submit'
         >
           submit
         </button>
       </div>
-      
-    </div>
+    </form>
   )
 }
