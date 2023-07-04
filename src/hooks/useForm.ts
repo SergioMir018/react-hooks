@@ -1,8 +1,7 @@
 import { useState, ChangeEventHandler } from 'react';
-import { FormStateHook } from '../types';
 
-export const useForm = ( initialState: FormStateHook ) => {
-  const [values, setValues] = useState<FormStateHook>(initialState);
+export const useForm = <T>( initialState: T ) => {
+  const [values, setValues] = useState<T>(initialState);
 
   const handleInputChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     setValues({

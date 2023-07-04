@@ -1,30 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Message from './Message';
 import { FormState } from '../../types';
+import { useForm } from '../../hooks/useForm';
 
 export const SimpleForm = () => {
 
-  const [formState, setFormState] = useState<FormState>({
+  const {values, handleInputChange} = useForm({
     name: '',
     email: ''
   });
 
-  const { name, email } = formState;
-  
-  useEffect(() => {
-    console.log('the name changed');
-  },[ name ] );
-
-  useEffect(() => {
-    console.log('the email changed');
-  },[ email ] );
-
-const handleInputChange = ( e:React.ChangeEvent<HTMLInputElement> ) => { 
-    setFormState({
-      ...formState,
-      [e.target.name]: e.target.value
-    });
-  };
+  const { name, email } = values as FormState;
 
   return (
     <div className='flex flex-col items-center mt-3'>
