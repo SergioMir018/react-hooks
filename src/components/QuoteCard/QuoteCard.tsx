@@ -1,15 +1,19 @@
 import React from 'react'
 
-const QuoteCard = () => {
+interface Component {
+  isLoading: boolean
+  quote: string
+  author: string
+}
+
+const QuoteCard = ( { isLoading, quote, author }: Component ) => {
   return (
-    <div>
-      <blockquote className='text-end text-white'>
-        <p className='text-xl'>
-          Hola Mundo
-        </p>
-        <footer className='text-lg'> - Author</footer>
-      </blockquote>
-    </div>
+    <blockquote className={ isLoading ? 'hidden' : 'text-white mt-4 border p-4 rounded-lg' }>
+      <p className='text-xl whitespace-normal w-[80%]'>
+        {quote}
+      </p>
+      <footer className='text-lg text-end'> - {author}</footer>
+    </blockquote>
   )
 }
 
