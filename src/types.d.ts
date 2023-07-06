@@ -8,3 +8,8 @@ export type FormStateHook = {
   email: string
   password: string
 }
+
+export type BreakingBadAPI = {
+  quote: string
+  author: string
+}
