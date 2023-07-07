@@ -3,10 +3,11 @@ import useFetch from '../../hooks/useFetch'
 import QuoteCard from '../QuoteCard/QuoteCard';
 import ErrorFetch from '../Error/ErrorFetch';
 import { BreakingBadAPI } from '../../types';
+import { useCounter } from '../../hooks/useCounter';
 
 const MultipleCustomHooks = () => {
   const [quotes, setQuotes] = useState<number>(0);
-  const [clickCount, setClickCount] = useState<number>(0);
+  const {state, increment} = useCounter(0);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
@@ -15,11 +16,11 @@ const MultipleCustomHooks = () => {
     if (input) {
       const numQuotes = parseInt(input.value);
       setQuotes(numQuotes);
-      setClickCount(clickCount + 1);
+      increment();
     }
   }
 
-  const { data, loading, error } = useFetch(`https://api.breakingbadquotes.xyz/v1/quotes/${quotes}`, clickCount);
+  const { data, loading, error } = useFetch(`https://api.breakingbadquotes.xyz/v1/quotes/${quotes}`, state);
 
   return (
     <div className='mt-5 relative flex flex-col items-center'>
