@@ -7,10 +7,10 @@ interface StateBreakingBadAPI {
   error: Error | null
 }
 
-const useFetch = ( url: string ) => {
+const useFetch = (url: string, clickCount: number) => {
   const [state, setState] = useState<StateBreakingBadAPI>({
-    data: null, 
-    loading: true, 
+    data: null,
+    loading: true,
     error: null
   });
 
@@ -21,16 +21,16 @@ const useFetch = ( url: string ) => {
       error: null
     });
 
-    fetch( url )
-      .then( response => response.json() )
-      .then( responseData => {
+    fetch(url)
+      .then(response => response.json())
+      .then(responseData => {
         setState({
           data: responseData,
           loading: false,
           error: null
         })
       });
-  }, [ url ]);
+  }, [url, clickCount]);
 
   return state;
 }

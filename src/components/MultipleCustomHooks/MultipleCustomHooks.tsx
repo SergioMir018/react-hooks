@@ -6,19 +6,20 @@ import { BreakingBadAPI } from '../../types';
 
 const MultipleCustomHooks = () => {
   const [quotes, setQuotes] = useState<number>(0);
-
-  const { data, loading, error } = useFetch(`https://api.breakingbadquotes.xyz/v1/quotes/${quotes}`);
+  const [clickCount, setClickCount] = useState<number>(0);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     const input = event.currentTarget.querySelector('input');
-    
+
     if (input) {
       const numQuotes = parseInt(input.value);
       setQuotes(numQuotes);
+      setClickCount(clickCount + 1);
     }
-
   }
+
+  const { data, loading, error } = useFetch(`https://api.breakingbadquotes.xyz/v1/quotes/${quotes}`, clickCount);
 
   return (
     <div className='mt-5 relative flex flex-col items-center'>
@@ -48,4 +49,4 @@ const MultipleCustomHooks = () => {
   )
 }
 
-export default MultipleCustomHooks
+export default MultipleCustomHooks;
