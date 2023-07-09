@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { BreakingBadAPI } from '../types';
 
 interface StateBreakingBadAPI {
-  data: BreakingBadAPI[] | null
+  data: Array<BreakingBadAPI> | null
   loading: boolean
   error: Error | null
 }
