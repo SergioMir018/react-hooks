@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 const FocusScreen = () => {
 
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const handleClick: React.MouseEventHandler<HTMLButtonElement> = () => {
-    document.querySelector('input')?.select();
+    inputRef.current?.select();
   }
   return (
     <div className='mt-5 text-white flex flex-col items-center'>
@@ -12,6 +14,7 @@ const FocusScreen = () => {
       </h1>
       <div className='flex flex-col'>
         <input
+          ref={inputRef}
           type="text"
           className='mt-4 py-2 px-2 w-[15rem] border border-slate-400 rounded-lg focus:border-slate-200 focus:shadow-md focus:shadow-slate-700 bg-transparent outline-none'
           placeholder='name...' />
