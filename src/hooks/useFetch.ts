@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BreakingBadAPI } from '../types';
 
 interface StateBreakingBadAPI {
@@ -8,11 +8,20 @@ interface StateBreakingBadAPI {
 }
 
 const useFetch = (url: string, clickCount: number) => {
+
+  const isMounted = useRef(true);
+
   const [state, setState] = useState<StateBreakingBadAPI>({
     data: null,
     loading: true,
     error: null
   });
+
+  useEffect(() => {
+    return () => {
+      isMounted.current =false;
+    }
+  }, []);
 
   useEffect(() => {
     setState({
@@ -24,11 +33,13 @@ const useFetch = (url: string, clickCount: number) => {
     fetch(url)
       .then(response => response.json())
       .then(responseData => {
-        setState({
-          data: responseData,
-          loading: false,
-          error: null
-        })
+        if (isMounted.current) {
+          setState({
+            data: responseData,
+            loading: false,
+            error: null
+          });
+        }
       });
   }, [url, clickCount]);
 

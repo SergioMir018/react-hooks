@@ -5,7 +5,7 @@ function RealExampleRef() {
   
   const [show, setShow] = useState<boolean>(false);
 
-  function handleToggle(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+  function handleToggle(event: any) {
     setShow(!show);
   }
   
