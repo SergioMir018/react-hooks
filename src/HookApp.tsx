@@ -1,5 +1,6 @@
 import React from 'react'
-import RealExampleRef from './components/useRef/RealExampleRef.tsx'
+import LayoutEffect from './components/useLayoutEffect/LayoutEffect'
+//import RealExampleRef from './components/useRef/RealExampleRef.tsx'
 // import { CounterApp } from './components/useState/CounterApp.tsx';
 // import { CounterCustomHook } from './components/useState/counterCustomHook.tsx';
 // import { SimpleForm } from './components/useEffect/SimpleForm.tsx';
@@ -11,7 +12,7 @@ const HookApp = () => {
 
   return (
     <div>
-      <RealExampleRef />
+      <LayoutEffect />
     </div>
   )
 }
