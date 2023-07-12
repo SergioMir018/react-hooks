@@ -1,9 +1,11 @@
 import React from 'react'
 
-const RealExampleRef = () => {
+function RealExampleRef() {
   return (
-    <div>
-      
+    <div className='text-white flex justify-center'>
+        <h1 className='text-5xl mt-4'>
+            Ref Real Case 
+        </h1>
     </div>
   )
 }
